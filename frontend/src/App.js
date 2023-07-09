@@ -19,47 +19,46 @@ import "./style.scss"
 
 
 //função para renderizar a navebar e o footer e no meio o filho
-const Layout = ()=>{
-  return(
+const Layout = () => {
+  return (
     <>
-    <Navebar />
-    <Outlet />
-    <Footer />
+      <Navebar />
+      <Outlet />
+      <Footer />
     </>
-  )
-}
+  );
+};
 
 
 //caminho das paginas
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<Layout />,
-    children:[
+    element: <Layout />,
+    children: [
       {
-        path:"/home",
-        element:<Home />
+        path: "/",
+        element: <Home />,
       },
       {
-        path:"/post:id",
-        element:<Single />
+        path: "/post/:id",
+        element: <Single />,
       },
       {
-        path:"/write",
-        element:<Write />
-      }
-    ]
+        path: "/write",
+        element: <Write />,
+      },
+    ],
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
   {
     path: "/login",
-    element:<Login />
-  },
-  {
-    path: "/register", 
-    element: <Register />
+    element: <Login />,
   },
 ]);
-
 
 //provedor das rotas função app que renderiza a tela
 function App() {
